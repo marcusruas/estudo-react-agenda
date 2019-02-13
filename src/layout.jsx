@@ -6,12 +6,12 @@ import Menu from './ui/menu'
 export default class Layout extends Component{
     render(){
         return (
-            <div className='d-flex flex-column'>
+            <div className='d-flex flex-column justify-content-center'>
                 <Row>
-                    <Col xs={3} sm={3} md={3}>
+                    <Col xs={4} sm={4} md={3}>
                         <LeftNav />
                     </Col>
-                    <Col xs={9} sm={9} md={9}>
+                    <Col xs={8} sm={8} md={9}>
                         <Menu />
                     </Col>
                 </Row>

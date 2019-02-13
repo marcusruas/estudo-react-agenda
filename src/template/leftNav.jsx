@@ -8,12 +8,12 @@ export default class LeftNav extends Component{
         return (
             <div className='leftNav-body d-flex flex-column'>
                 <h1>AGENDA VIRTUAL</h1>
-                <Container>
-                    <Row><Col><Button className='btn btn-light mt-10' block>MENU</Button></Col></Row>
-                    <Row><Col><Button className='btn btn-light mt-10' block>CADASTRAR</Button></Col></Row>
-                    <Row><Col><Button className='btn btn-light mt-10' block>CONTATOS</Button></Col></Row>
-                    <Row><Col><Button className='btn btn-light mt-10' block>SOBRE</Button></Col></Row>
-                </Container>
+                <div className='d-flex flex-column align-items-center justify-content-center'>
+                    <Button className='btn btn-light mt-20 w-75'>MENU</Button>
+                    <Button className='btn btn-light mt-20 w-75'>CADASTRAR</Button>
+                    <Button className='btn btn-light mt-20 w-75'>CONTATOS</Button>
+                    <Button className='btn btn-light mt-20 w-75'>SOBRE</Button>
+                </div>
             </div>
         )
     }
