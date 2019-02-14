@@ -1,0 +1,17 @@
+#UpperNav{
+    background-color: #444;
+    min-height: 768px;
+}
+
+#UpperNav h1{
+    text-align: center;
+    color: #fff;
+}
+
+#UpperNav .space-footer{
+    height: 50px;
+}
+
+.mb-10{
+    margin-bottom: 10px;
+}
