@@ -1,14 +1,17 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
+import React,{ Component } from "react"
+import { Route } from 'react-router-dom'
 
 import Menu from './ui/pages/menu'
 import Sobre from './ui/pages/sobre'
 
-export default props => (
-    <Router>
-        <div>
-            <Route path='/menu' component={Menu}/>
-            <Route path='/sobre' component={Sobre}/>
-        </div>
-    </Router>
-)
+export default class Routes extends Component{
+    render(){
+        return (
+            <div>
+                <Route path='/home' component={Menu}/>
+                <Route path='/sobre' component={Sobre}/>
+            </div>
+        )
+    }
+}
+
