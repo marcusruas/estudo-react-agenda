@@ -11,22 +11,22 @@ export default class UpperNav extends Component{
             <div id="UpperNav">
                 <h1>AGENDA</h1>
                     <Row className="mb-10">
-                        <Col span={24}>
+                        <Col offset={1} span={22}>
                             <Link to='home'><Button block><Icon type="home"/> Menu</Button></Link>
                         </Col>
                     </Row>
                     <Row className="mb-10">
-                        <Col span={24}>
+                        <Col offset={1} span={22}>
                             <Link to='sobre'><Button block><Icon type="question"/>Sobre</Button></Link>
                         </Col>
                     </Row>
                     <Row className="mb-10">
-                        <Col span={24}>
-                            <Button block><Icon type="plus"/>Nova Pessoa</Button>
+                        <Col offset={1} span={22}>
+                            <Link to='novo'><Button block><Icon type="plus"/>Novo Contato</Button></Link>
                         </Col>
                     </Row>
                     <Row className="mb-10">
-                        <Col span={24}>
+                        <Col offset={1} span={22}>
                             <Button block><Icon type="search"/>Ver Contatos</Button>
                         </Col>
                     </Row>

@@ -16,11 +16,12 @@
     margin-bottom: 10px;
 }
 
-#home{
+.home_sobre{
     text-align: center;
+    min-height: 768px;
 }
 
-#home p {
+.home_sobre p {
     text-align: justify;
     margin-right: 10px;
     margin-left: 10px;
@@ -28,4 +29,9 @@
 
 .bg-grey{
     background-color: #d9d9d9;
+}
+
+#novoContato h1{
+    text-align: center;
+    color: #444;
 }

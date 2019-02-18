@@ -5,7 +5,7 @@ import '../static/template.css'
 export default class Menu extends Component{
     render(){
         return(
-            <div id='home' className='bg-grey'>
+            <div className='bg-grey home_sobre'>
                 <h1>Teste React - Menu</h1>
                 <p>
                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, 

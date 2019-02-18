@@ -4,7 +4,7 @@ export default class Sobre extends Component{
 
     render(){
         return(
-            <div id='home' className='bg-grey'>
+            <div className='bg-grey home_sobre'>
                 <h1>Teste React - Sobre</h1>
                 <p>
                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
