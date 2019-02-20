@@ -35,7 +35,8 @@ export default class NovoContato extends Component{
     //empacota o estado e manda pra API
     SubmitForm = (e) => {
         e.preventDefault()
-        //falta implementar
+
+        var obj = ContatoFactory.build(this.state)
     }
 
     render(){
