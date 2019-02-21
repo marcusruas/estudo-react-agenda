@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { Row, Col } from 'antd'
 import { Form, Input, Select, InputNumber, Button, Icon } from 'antd'
 
-import ContatoFactory from '../../core/models/contatoFactory'
+import * as ContatoService from '../../core/services/contatoService'
+
 import '../static/template.css'
 
 export default class NovoContato extends Component{
@@ -16,6 +17,7 @@ export default class NovoContato extends Component{
         this.GetNewSex = this.GetNewSex.bind(this)
         this.GetNewAge = this.GetNewAge.bind(this)
         this.GetNewPhone = this.GetNewPhone.bind(this)
+
     }
 
     //Verificam mudanças nos inputs para atualizar o estado
@@ -36,7 +38,8 @@ export default class NovoContato extends Component{
     SubmitForm = (e) => {
         e.preventDefault()
 
-        var obj = ContatoFactory.build(this.state)
+        var obj = ContatoService.ObterTodosContatos()
+        console.log(obj)
     }
 
     render(){
