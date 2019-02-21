@@ -3,7 +3,7 @@ import ContatoFactory from '../models/contatoFactory'
 
 const ObterTodosContatos = async () => {
     try {
-        const response = await ContatoApi.TodosContatos
+        const response = await ContatoApi.TodosContatos()
         const listaRetorno = []
         for(let i = 0; i < response.data.length; i++){
             let obj = ContatoFactory.build(response.data[i])
@@ -15,4 +15,12 @@ const ObterTodosContatos = async () => {
     }
 }
 
-export { ObterTodosContatos }
+const AdicionarContato = async (contato) => {
+    try {
+        const response = await ContatoApi.Adicionar(contato)
+    } catch (error) {
+        throw error
+    }
+}
+
+export { ObterTodosContatos, AdicionarContato }

@@ -5,11 +5,12 @@ import { Form, Input, Select, InputNumber, Button, Icon } from 'antd'
 import * as ContatoService from '../../core/services/contatoService'
 
 import '../static/template.css'
+import ContatoFactory from '../../core/models/contatoFactory';
 
 export default class NovoContato extends Component{
     constructor(props){
         super(props)
-        this.state = {nome: '', sexo: "M", idade: 18, telefone: 993939190}
+        this.state = {Nome: '', Sexo: "M", Idade: 18, Telefone: 993939190}
         
         this.SubmitForm = this.SubmitForm.bind(this)
         
@@ -22,24 +23,24 @@ export default class NovoContato extends Component{
 
     //Verificam mudanças nos inputs para atualizar o estado
     GetNewName(e){
-        this.setState({...this.state, nome: e.target.value})
+        this.setState({...this.state, Nome: e.target.value})
     }
     GetNewSex(e){
-        this.setState({...this.state, sexo: e})
+        this.setState({...this.state, Sexo: e})
     }
     GetNewAge(e){
-        this.setState({...this.state, idade: e})
+        this.setState({...this.state, Idade: e})
     }
     GetNewPhone(e){
-        this.setState({...this.state, telefone: e})
+        this.setState({...this.state, Telefone: e})
     }
 
     //empacota o estado e manda pra API
     SubmitForm = (e) => {
         e.preventDefault()
 
-        var obj = ContatoService.ObterTodosContatos()
-        console.log(obj)
+        var obj = ContatoFactory.build({...this.state})
+        ContatoService.AdicionarContato(obj)
     }
 
     render(){
@@ -52,7 +53,7 @@ export default class NovoContato extends Component{
                         <Form onSubmit={this.SubmitForm}>
 
                             <Form.Item label='Nome: '>
-                                <Input value={this.state.nome} 
+                                <Input value={this.state.Nome} 
                                        prefix={<Icon type="user" 
                                        style={{ color: 'rgba(0,0,0,.25)' }} />} 
                                        placeholder="Nome do Contato" 
@@ -60,18 +61,18 @@ export default class NovoContato extends Component{
                             </Form.Item>
 
                             <Form.Item label='Sexo: '>
-                            <Select defaultValue={this.state.sexo} style={{ width: 120 }} onChange={this.GetNewSex}>
+                            <Select defaultValue={this.state.Sexo} style={{ width: 120 }} onChange={this.GetNewSex}>
                                 <Option value="M">Masculino</Option>
                                 <Option value="F">Feminino</Option>
                             </Select>
                             </Form.Item>
 
                             <Form.Item label='Idade: '>
-                                <InputNumber min={1} max={99} defaultValue={this.state.idade} onChange={this.GetNewAge}/>
+                                <InputNumber min={1} max={99} defaultValue={this.state.Idade} onChange={this.GetNewAge}/>
                             </Form.Item>
 
                             <Form.Item label='Telefone (Somente Números): '>
-                                <InputNumber style={{width: 300}} min={1} max={999999999} defaultValue={this.state.telefone} onChange={this.GetNewPhone}/>
+                                <InputNumber style={{width: 300}} min={1} max={999999999} defaultValue={this.state.Telefone} onChange={this.GetNewPhone}/>
                             </Form.Item>
                             
                             <Form.Item>
