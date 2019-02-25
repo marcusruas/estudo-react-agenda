@@ -27,7 +27,7 @@ export default class UpperNav extends Component{
                     </Row>
                     <Row className="mb-10">
                         <Col offset={1} span={22}>
-                            <Button block><Icon type="search"/>Ver Contatos</Button>
+                            <Link to='contatos'><Button block><Icon type="search"/>Ver Contatos</Button></Link>
                         </Col>
                     </Row>
                 <div className="space-footer"></div>
