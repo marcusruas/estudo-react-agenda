@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux'
 
+import novoContatoReducer from './reducers/novoContatoReducer'
+
 const Reducers = combineReducers({
     contatos: () => ({ dados: [] }),
-    novoContato: () => ({ Nome: '', Sexo: "M", Idade: 1, Telefone: 1 })
+    novoContato: novoContatoReducer
 })
 
 export default Reducers
