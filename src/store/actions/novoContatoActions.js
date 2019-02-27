@@ -1,3 +1,5 @@
+import * as ContatoService from '../../core/services/contatoService'
+
 function MudarNome(e){
     return {
         type: 'NOME_ATUALIZADO',

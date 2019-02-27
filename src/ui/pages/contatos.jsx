@@ -13,6 +13,8 @@ class Contatos extends Component{
             {title: 'Idade', dataIndex: 'idade', key: 'idade'},
             {title: 'Telefone', dataIndex: 'telefone', key: 'telefone'}
         ]
+
+
         return (
             <div>
                 <h1>Contatos Cadastrados</h1>

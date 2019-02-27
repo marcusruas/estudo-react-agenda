@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Row, Col } from 'antd'
+import { Form, Input, Select, InputNumber, Button, Icon } from 'antd'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { Form, Input, Select, InputNumber, Button, Icon } from 'antd'
 
 import '../static/template.css'
 import { MudarNome, MudarSexo, MudarIdade, MudarTelefone, CadastrarContato } from '../../store/actions/novoContatoActions'
@@ -48,8 +48,9 @@ class NovoContato extends Component{
                             </Form.Item>
                             
                             <Form.Item>
-                                <Button type="primary" htmlType="submit" className="login-form-button">
-                                    Enviar
+                                <Button type="primary" 
+                                        htmlType="submit" 
+                                        className="login-form-button">Enviar
                                 </Button>
                             </Form.Item>
 

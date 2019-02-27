@@ -12,7 +12,8 @@ const ObterTodosContatos = async () => {
 
 const AdicionarContato = async (contato) => {
     try {
-        await ContatoApi.Adicionar(contato)
+        const response = await ContatoApi.Adicionar(contato)
+        return response.data
     } catch (error) {
         throw error
     }
