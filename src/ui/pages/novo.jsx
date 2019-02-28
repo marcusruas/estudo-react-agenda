@@ -4,7 +4,6 @@ import { Form, Input, Select, InputNumber, Button, Icon } from 'antd'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import '../static/template.css'
 import { MudarNome, MudarSexo, MudarIdade, MudarTelefone, CadastrarContato } from '../../store/actions/novoContatoActions'
 
 class NovoContato extends Component{
@@ -16,7 +15,6 @@ class NovoContato extends Component{
                 <Row>
                     <Col offset={1} span={22}>
                         <Form onSubmit={this.props.CadastrarContato}>
-
                             <Form.Item label='Nome: '>
                                 <Input value={this.props.Nome} 
                                        prefix={<Icon type="user" 
@@ -26,7 +24,7 @@ class NovoContato extends Component{
                             </Form.Item>
 
                             <Form.Item label='Sexo: '>
-                            <Select defaultValue={this.props.Sexo} 
+                            <Select value={this.props.Sexo} 
                                     style={{ width: 120 }} 
                                     onChange={this.props.MudarSexo}>
                                 <Option value="M">Masculino</Option>
@@ -36,14 +34,16 @@ class NovoContato extends Component{
 
                             <Form.Item label='Idade: '>
                                 <InputNumber min={1} max={99} 
-                                             defaultValue={this.props.Idade} 
+                                             value={this.props.Idade} 
+                                             placeholder="Idade"
                                              onChange={this.props.MudarIdade}/>
                             </Form.Item>
 
                             <Form.Item label='Telefone (Somente Números): '>
                                 <InputNumber style={{width: 300}} 
                                              min={1} max={999999999} 
-                                             defaultValue={this.props.Telefone} 
+                                             value={this.props.Telefone} 
+                                             placeholder="Telefone do Contato"
                                              onChange={this.props.MudarTelefone}/>
                             </Form.Item>
                             
@@ -53,7 +53,6 @@ class NovoContato extends Component{
                                         className="login-form-button">Enviar
                                 </Button>
                             </Form.Item>
-
                         </Form>
                     </Col>
                 </Row>

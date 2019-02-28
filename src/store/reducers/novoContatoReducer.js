@@ -1,8 +1,8 @@
 import * as ContatoService from '../../core/services/contatoService'
 
-const novoContatoState = {Nome: '', Sexo: 'M', Idade: 18, Telefone: ''}
+const estadoInicial = {Nome: '', Sexo: 'M', Idade: null, Telefone: ''}
 
-export default function(state = novoContatoState, action){
+export default function(state = estadoInicial, action){
     switch(action.type){
         case 'NOME_ATUALIZADO':
             return {...state, Nome: action.payload }
@@ -14,7 +14,7 @@ export default function(state = novoContatoState, action){
             return {...state, Telefone: action.payload}
         case 'CADASTRAR_CONTATO':
             ContatoService.AdicionarContato(state)
-            return state
+            return estadoInicial
         default: 
             return state
     }

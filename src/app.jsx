@@ -1,6 +1,6 @@
 import React,{ Component } from "react"
-import { Row, Col } from 'antd'
 import { BrowserRouter as Router } from 'react-router-dom'
+import { Row, Col } from 'antd'
 
 import Routes from './routes'
 import UpperNav from './ui/template/upperNav'

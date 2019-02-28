@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Row, Col } from 'antd'
 import { Table } from 'antd'
 
-import '../static/template.css'
+
 
 class Contatos extends Component{
     render(){
