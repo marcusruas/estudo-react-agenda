@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux';
 import { Row, Col } from 'antd'
-import { Table } from 'antd'
+import { Button, Table } from 'antd'
 
-
+import { ObterTodosContatos } from '../../store/actions/contatosActions'
 
 class Contatos extends Component{
     render(){
@@ -21,6 +22,7 @@ class Contatos extends Component{
                 <Row>
                     <Col offset={1} span={22}>
                         <Table dataSource={this.props.dados} columns={columns} />
+                        <Button onClick={this.props.ObterTodosContatos}>Atualizar</Button>
                     </Col>
                 </Row>
             </div>
@@ -34,4 +36,8 @@ function mapStateToProps(state){
     }
 }
 
-export default connect(mapStateToProps)(Contatos)
+function mapDispatchToProps(dispatch){
+    return bindActionCreators({ObterTodosContatos}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Contatos)
