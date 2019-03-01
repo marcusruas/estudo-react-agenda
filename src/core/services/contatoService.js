@@ -1,4 +1,5 @@
 import * as ContatoApi from '../api/contatoApi'
+import { toastr } from 'react-redux-toastr'
 import ContatoFactory from '../models/contatoFactory'
 
 const ObterTodosContatos = async () => {
@@ -13,8 +14,10 @@ const ObterTodosContatos = async () => {
 const AdicionarContato = async (contato) => {
     try {
         const response = await ContatoApi.Adicionar(contato)
+        toastr.success("Sucesso!", `${contato.Nome} Cadastrado com sucesso`)
         return response.data
     } catch (error) {
+        toastr.error("Erro ao cadastrar!", `${error}`)
         throw error
     }
 }
