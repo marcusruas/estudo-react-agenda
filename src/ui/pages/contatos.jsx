@@ -7,14 +7,19 @@ import { Button, Table } from 'antd'
 import { ObterTodosContatos } from '../../store/actions/contatosActions'
 
 class Contatos extends Component{
+    constructor(props){
+        super(props)
+        this.dataSource = []
+        this.props.ObterTodosContatos()
+    }
+
     render(){
         const columns = [
-            {title: 'Nome', dataIndex: 'nome', key: 'nome'},
-            {title: 'Sexo', dataIndex: 'sexo', key: 'sexo'},
-            {title: 'Idade', dataIndex: 'idade', key: 'idade'},
-            {title: 'Telefone', dataIndex: 'telefone', key: 'telefone'}
+            {title: 'Nome', dataIndex: 'Nome', key: 'Nome'},
+            {title: 'Sexo', dataIndex: 'Sexo', key: 'Sexo'},
+            {title: 'Idade', dataIndex: 'Idade', key: 'Idade'},
+            {title: 'Telefone', dataIndex: 'Telefone', key: 'Telefone'}
         ]
-
 
         return (
             <div>
@@ -22,7 +27,6 @@ class Contatos extends Component{
                 <Row>
                     <Col offset={1} span={22}>
                         <Table dataSource={this.props.dados} columns={columns} />
-                        <Button onClick={this.props.ObterTodosContatos}>Atualizar</Button>
                     </Col>
                 </Row>
             </div>

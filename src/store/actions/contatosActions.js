@@ -1,6 +1,6 @@
 import * as ContatoService from '../../core/services/contatoService'
 
-function ObterTodosContatos(e){
+function ObterTodosContatos(){
     return {
         type: 'OBTER_CONTATOS',
         payload: ContatoService.ObterTodosContatos()

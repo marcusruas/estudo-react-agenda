@@ -1,5 +1,6 @@
 export default class Contato{
-    constructor({Nome, Sexo, Idade, Telefone}){
+    constructor({Idcontato, Nome, Sexo, Idade, Telefone}){
+        this.Idcontato = Idcontato;
         this.Nome = Nome;
         this.Sexo = Sexo;
         this.Idade = Idade;
