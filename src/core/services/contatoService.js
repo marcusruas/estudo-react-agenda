@@ -14,7 +14,7 @@ const ObterTodosContatos = async () => {
 const AdicionarContato = async (contato) => {
     try {
         const response = await ContatoApi.Adicionar(contato)
-        toastr.success("Sucesso!", `${contato.Nome} Cadastrado com sucesso`)
+        toastr.success("Sucesso!", `${contato.Nome} Cadastrado com sucesso!`)
         return response.data
     } catch (error) {
         toastr.error("Erro ao cadastrar!", `${error}`)
@@ -22,4 +22,15 @@ const AdicionarContato = async (contato) => {
     }
 }
 
-export { ObterTodosContatos, AdicionarContato }
+const RemoverContato = async (contato) => {
+    try{
+        const response = await ContatoApi.Remover(contato)
+        toastr.success("Sucesso!", `${contato.Nome} Removido com sucesso!`)
+        return response.data
+    } catch (error) {
+        toastr.error("Erro ao Deletar!", `${error}`)
+        throw error
+    }
+}
+
+export { ObterTodosContatos, AdicionarContato, RemoverContato }

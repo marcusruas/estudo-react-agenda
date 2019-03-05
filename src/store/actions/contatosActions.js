@@ -7,6 +7,14 @@ function ObterTodosContatos(){
     }
 }
 
+function RemoverContato(contato){
+    return {
+        type: 'REMOVER_CONTATO',
+        payload: ContatoService.RemoverContato(contato)
+    }
+}
+
 export {
-    ObterTodosContatos
+    ObterTodosContatos,
+    RemoverContato
 }
