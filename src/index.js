@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware  } from 'redux'
 import thunk from 'redux-thunk'
 import promise from 'redux-promise'
+import multi from 'redux-multi'
+
 import { Provider } from 'react-redux'
 
 import './ui/static/template.css'
@@ -16,7 +18,9 @@ import * as serviceWorker from './core/services/serviceWorker';
 
 serviceWorker.register();
 
-const store = applyMiddleware(thunk, promise)(createStore)(Reducers)
+const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+
+const store = applyMiddleware(thunk, promise, multi)(createStore)(Reducers, devTools)
 
 ReactDOM.render(
     <Provider store={store}>

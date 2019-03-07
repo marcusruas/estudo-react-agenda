@@ -1,20 +1,14 @@
 import * as ContatoService from '../../core/services/contatoService'
 
-function ObterTodosContatos(){
+export function ObterTodosContatos(){
     return {
         type: 'OBTER_CONTATOS',
         payload: ContatoService.ObterTodosContatos()
     }
 }
 
-function RemoverContato(contato){
-    return {
-        type: 'REMOVER_CONTATO',
-        payload: ContatoService.RemoverContato(contato)
+export function RemoverContato(contato){
+    return dispatch => {
+        ContatoService.RemoverContato(contato).then(done => dispatch(ObterTodosContatos()))
     }
-}
-
-export {
-    ObterTodosContatos,
-    RemoverContato
 }

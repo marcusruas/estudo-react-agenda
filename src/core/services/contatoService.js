@@ -24,9 +24,12 @@ const AdicionarContato = async (contato) => {
 
 const RemoverContato = async (contato) => {
     try{
-        const response = await ContatoApi.Remover(contato)
-        toastr.success("Sucesso!", `${contato.Nome} Removido com sucesso!`)
-        return response.data
+        const request = await ContatoApi.Remover(contato)
+        if(request.data.resultado){
+            toastr.success("Sucesso!", `${contato.Nome} Removido com sucesso!`)
+        }else{
+            toastr.error("Erro ao Deletar!", `Houve um problema no banco de dados`)
+        }
     } catch (error) {
         toastr.error("Erro ao Deletar!", `${error}`)
         throw error

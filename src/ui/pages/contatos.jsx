@@ -29,8 +29,8 @@ class Contatos extends Component{
                     ...contato,
                     Acoes: (
                         <div>
-                            <Button className="contatos-acao"><Icon type="edit" theme="filled" /></Button>
-                            <Button className="contatos-acao" onClick={() => RemoverContato(contato)}><Icon type="delete" theme="filled" /></Button>
+                            <Button className="contatos-acao" ><Icon type="edit" theme="filled" /></Button>
+                            <Button className="contatos-acao" onClick={() => this.props.RemoverContato(contato)}><Icon type="delete" theme="filled" /></Button>
                         </div>
                     )
                 }
@@ -57,7 +57,7 @@ function mapStateToProps(state){
 }
 
 function mapDispatchToProps(dispatch){
-    return bindActionCreators({ ObterTodosContatos }, dispatch)
+    return bindActionCreators({ ObterTodosContatos, RemoverContato }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Contatos)
