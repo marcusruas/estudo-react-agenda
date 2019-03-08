@@ -12,3 +12,10 @@ export function RemoverContato(contato){
         ContatoService.RemoverContato(contato).then(done => dispatch(ObterTodosContatos()))
     }
 }
+
+export function AtualizarContato(contato){
+    return {
+        type: 'EDITAR_CONTATO',
+        payload: contato
+    }
+}

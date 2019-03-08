@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 import { Row, Col } from 'antd'
-import { Button, Icon, Table } from 'antd'
+import { Button, Input, Icon, Table } from 'antd'
 
-import { ObterTodosContatos, RemoverContato } from '../../store/actions/contatosActions'
+import { ObterTodosContatos, RemoverContato, AtualizarContato } from '../../store/actions/contatosActions'
 
 class Contatos extends Component{
     constructor(props){
@@ -26,11 +26,15 @@ class Contatos extends Component{
             return dataSource.map(contato => (
                 {
                     key: contato.Idcontato.toString(),
-                    ...contato,
+                    //value: ternario? this.props.travaContato.Nome
+                    Nome: (<Input placeHolder="Nome" value={contato.Nome} disabled={this.props.travaContato? this.props.travaContato.Idcontato === contato.Idcontato? false : true : true}/>),
+                    Sexo: (<Input placeHolder="Sexo" value={contato.Sexo} disabled={this.props.travaContato? this.props.travaContato.Idcontato === contato.Idcontato? false : true : true}/>),
+                    Idade: (<Input placeHolder="Idade" value={contato.Idade} disabled={this.props.travaContato? this.props.travaContato.Idcontato === contato.Idcontato? false : true : true}/>),
+                    Telefone: (<Input placeHolder="Telefone" value={contato.Telefone} disabled={this.props.travaContato? this.props.travaContato.Idcontato === contato.Idcontato? false : true : true}/>),
                     Acoes: (
                         <div>
-                            <Button className="contatos-acao" ><Icon type="edit" theme="filled" /></Button>
-                            <Button className="contatos-acao" onClick={() => this.props.RemoverContato(contato)}><Icon type="delete" theme="filled" /></Button>
+                            <Button onClick={() => this.props.AtualizarContato(contato)}><Icon type={this.props.travaContato? this.props.travaContato.Idcontato === contato.Idcontato? "check-circle" : "edit" : "edit"} theme="filled" /></Button>
+                            <Button onClick={() => this.props.RemoverContato(contato)}><Icon type="delete" theme="filled" /></Button>
                         </div>
                     )
                 }
@@ -52,12 +56,13 @@ class Contatos extends Component{
 
 function mapStateToProps(state){
     return {
-        dados: state.contatos.dados
+        dados: state.contatos.dados,
+        travaContato: state.contatos.travaContato
     }
 }
 
 function mapDispatchToProps(dispatch){
-    return bindActionCreators({ ObterTodosContatos, RemoverContato }, dispatch)
+    return bindActionCreators({ ObterTodosContatos, RemoverContato, AtualizarContato }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Contatos)

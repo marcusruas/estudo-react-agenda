@@ -36,4 +36,18 @@ const RemoverContato = async (contato) => {
     }
 }
 
-export { ObterTodosContatos, AdicionarContato, RemoverContato }
+const AtualizarContato = async (contato) => {
+    try{
+        const request = await ContatoApi.Atualizar(contato)
+        if(request.data.resultado){
+            toastr.success("Sucesso!", `${contato.Nome} Atualizado com sucesso!`)
+        }else{
+            toastr.error("Erro ao Atualizar!", `Houve um problema no banco de dados`)
+        }
+    } catch (error) {
+        toastr.error("Erro ao Atualizar!", `${error}`)
+        throw error
+    }
+}
+
+export { ObterTodosContatos, AdicionarContato, RemoverContato, AtualizarContato }
