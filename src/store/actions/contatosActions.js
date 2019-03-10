@@ -13,9 +13,43 @@ export function RemoverContato(contato){
     }
 }
 
-export function AtualizarContato(contato){
+export function ContatoParaEdicao(contato){
     return {
-        type: 'EDITAR_CONTATO',
+        type: 'TRAVAR_CONTATO',
         payload: contato
+    }
+}
+
+export function AtualizarContato(contato){
+    return dispatch => {
+        ContatoService.AtualizarContato(contato).then(done => dispatch(ObterTodosContatos()))
+    }
+}
+
+export function AtualizarNome(e){
+    return {
+        type: 'ATUALIZAR_NOME_CONTATO_TRAVADO',
+        payload: e.target.value
+    }
+}
+
+export function AtualizarSexo(e){
+    return {
+        type: 'ATUALIZAR_SEXO_CONTATO_TRAVADO',
+        payload: e
+    }
+}
+
+export function AtualizarIdade(e){
+    return {
+        type: 'ATUALIZAR_IDADE_CONTATO_TRAVADO',
+        payload: e
+    }
+}
+
+export function AtualizarTelefone(e){
+    return {
+        type: 'ATUALIZAR_TELEFONE_CONTATO_TRAVADO',
+        payload: e
     }
 }
